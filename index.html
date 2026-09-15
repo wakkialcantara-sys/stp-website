@@ -224,6 +224,63 @@ section {
     line-height: 1.8;
 }
 
+/* TEAM RULES */
+
+.rules-box {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 28px;
+    background: linear-gradient(150deg, #251b39, #120d20);
+    border: 1px solid #6c5128;
+    border-radius: 8px;
+}
+
+.rules-box h3 {
+    color: #f3c65c;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.rule {
+    padding: 15px 0;
+    border-bottom: 1px solid #45351e;
+}
+
+.rule:last-child {
+    border-bottom: none;
+}
+
+.rule-title {
+    color: #f3c65c;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    margin-bottom: 6px;
+}
+
+.rule p {
+    margin: 0;
+    color: #d8cdb2;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.rules-agreement {
+    margin-top: 22px;
+    padding: 15px;
+    border: 1px solid #b78b36;
+    border-radius: 5px;
+    background: rgba(183, 139, 54, 0.08);
+    color: #f3c65c !important;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+/* APPLICATION FORM */
+
 .application-form {
     display: none;
     margin: 30px auto 0;
@@ -260,6 +317,10 @@ section {
     color: white;
     font-family: Arial, sans-serif;
     font-size: 15px;
+}
+
+.question select option:disabled {
+    color: #888;
 }
 
 .question textarea {
@@ -354,7 +415,8 @@ footer {
     }
 
     .application-form,
-    .review-message {
+    .review-message,
+    .rules-box {
         padding: 18px;
     }
 }
@@ -497,14 +559,15 @@ footer {
 
             <article class="news-card">
                 <span class="news-date">
-                    Coming Soon
+                    September 16, 2026
                 </span>
 
                 <h3>STP Team Recruitment</h3>
 
                 <p>
-                    Applications are open for future
-                    moderators, promoters, and testers.
+                    Applications are currently open for
+                    Promoters and Testers.
+                    Moderator recruitment will open soon.
                 </p>
 
                 <span class="news-tag">
@@ -517,18 +580,140 @@ footer {
 </section>
 
 <section id="applications">
+
     <h2 class="section-title">Join the STP Team</h2>
 
     <div class="application-box">
 
         <p style="text-align:center;">
             Interested in becoming part of Sang'gre The Prophecy?
-            Apply for a role in our team.
+            Apply for a Promoter or Tester role in our team.
         </p>
+
+        <!-- STP TEAM RULES -->
+
+        <div class="rules-box">
+
+            <h3>✦ Suggested STP Team Rules ✦</h3>
+
+            <div class="rule">
+                <div class="rule-title">
+                    1. Be Respectful
+                </div>
+
+                <p>
+                    Treat all players and team members with respect.
+                    No bullying, harassment, or unnecessary arguments.
+                </p>
+            </div>
+
+            <div class="rule">
+                <div class="rule-title">
+                    2. Be Responsible
+                </div>
+
+                <p>
+                    Complete your assigned tasks and take your role seriously.
+                </p>
+            </div>
+
+            <div class="rule">
+                <div class="rule-title">
+                    3. No Staff Abuse
+                </div>
+
+                <p>
+                    Do not misuse team permissions, privileges, or authority.
+                </p>
+            </div>
+
+            <div class="rule">
+                <div class="rule-title">
+                    4. Keep STP Information Private
+                </div>
+
+                <p>
+                    Do not share private team discussions, unreleased content,
+                    or confidential information without permission.
+                </p>
+            </div>
+
+            <div class="rule">
+                <div class="rule-title">
+                    5. Report Bugs Honestly
+                </div>
+
+                <p>
+                    Testers should report bugs clearly and truthfully.
+                    Do not intentionally break the game or exploit glitches.
+                </p>
+            </div>
+
+            <div class="rule">
+                <div class="rule-title">
+                    6. No Scamming or Deception
+                </div>
+
+                <p>
+                    Never scam players or pretend to have powers, items,
+                    or authority that you do not actually have.
+                </p>
+            </div>
+
+            <div class="rule">
+                <div class="rule-title">
+                    7. Communicate With the Team
+                </div>
+
+                <p>
+                    If you have a problem, question, or suggestion,
+                    communicate with the team respectfully.
+                </p>
+            </div>
+
+            <div class="rule">
+                <div class="rule-title">
+                    8. Stay Active
+                </div>
+
+                <p>
+                    Try to remain active according to your role.
+                    If you need a break, let the team know.
+                </p>
+            </div>
+
+            <div class="rule">
+                <div class="rule-title">
+                    9. Follow STP Decisions
+                </div>
+
+                <p>
+                    Respect official decisions made by the
+                    STP leadership team.
+                </p>
+            </div>
+
+            <div class="rule">
+                <div class="rule-title">
+                    10. Have Fun! ✦
+                </div>
+
+                <p>
+                    Help make STP a welcoming, creative,
+                    and enjoyable community for everyone.
+                </p>
+            </div>
+
+            <p class="rules-agreement">
+                By applying for the STP Team, you agree
+                to follow these rules.
+            </p>
+
+        </div>
 
         <div style="text-align:center;">
             <button class="button" id="applyButton" type="button">
-                Apply for Moderator/Promoter/Tester
+                Apply for Promoter/Tester
             </button>
         </div>
 
@@ -560,10 +745,23 @@ footer {
                 </label>
 
                 <select id="role" name="role" required>
-                    <option value="">Choose a role</option>
-                    <option>Moderator</option>
-                    <option>Promoter</option>
-                    <option>Tester</option>
+
+                    <option value="">
+                        Choose a role
+                    </option>
+
+                    <option value="Moderator" disabled>
+                        Moderator — Currently Unavailable
+                    </option>
+
+                    <option value="Promoter">
+                        Promoter
+                    </option>
+
+                    <option value="Tester">
+                        Tester
+                    </option>
+
                 </select>
             </div>
 
@@ -602,11 +800,25 @@ footer {
                     name="availability"
                     required
                 >
-                    <option value="">Choose an answer</option>
-                    <option>Every day</option>
-                    <option>A few days a week</option>
-                    <option>Weekends only</option>
-                    <option>Occasionally</option>
+                    <option value="">
+                        Choose an answer
+                    </option>
+
+                    <option>
+                        Every day
+                    </option>
+
+                    <option>
+                        A few days a week
+                    </option>
+
+                    <option>
+                        Weekends only
+                    </option>
+
+                    <option>
+                        Occasionally
+                    </option>
                 </select>
             </div>
 
@@ -648,7 +860,7 @@ footer {
             </div>
 
             <div class="question">
-                <label for="ideas">
+                <label for="id eas">
                     9. What ideas can you contribute to STP?
                 </label>
 
@@ -676,7 +888,10 @@ footer {
                 information, or other sensitive details.
             </p>
 
-            <button class="button submit-button" type="submit">
+            <button
+                class="button submit-button"
+                type="submit"
+            >
                 Submit Application
             </button>
 
@@ -693,135 +908,4 @@ footer {
                 If you still haven't got your application result,
                 please chat with us on our official TikTok account:
                 <strong>@sanggretheprophecy</strong>
-            </p>
-
-            <p class="form-note">
-                Copy the application answers you submitted,
-                then paste them into our official TikTok chat.
-            </p>
-
-            <button
-                class="button copy-button"
-                id="copyButton"
-                type="button"
-            >
-                Copy Application
-            </button>
-
-            <a
-                class="button copy-button"
-                href="https://www.tiktok.com/@sanggretheprophecy"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Visit Official TikTok
-            </a>
-
-            <button
-                class="button copy-button"
-                id="applyAgainButton"
-                type="button"
-            >
-                Apply Again
-            </button>
-
-        </div>
-
-    </div>
-</section>
-
-<footer>
-    Sang'gre The Prophecy (STP) · Fan-made website
-</footer>
-
-<script>
-const applyButton = document.getElementById("applyButton");
-const applicationForm = document.getElementById("applicationForm");
-const reviewMessage = document.getElementById("reviewMessage");
-const copyButton = document.getElementById("copyButton");
-const applyAgainButton = document.getElementById("applyAgainButton");
-
-let applicationText = "";
-
-applyButton.addEventListener("click", function() {
-    applicationForm.classList.toggle("active");
-
-    if (applicationForm.classList.contains("active")) {
-        applicationForm.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }
-});
-
-applicationForm.addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    const data = new FormData(applicationForm);
-
-    applicationText =
-        "SANG'GRE THE PROPHECY (STP) APPLICATION\n\n" +
-        "1. Roblox Username: " + data.get("username") + "\n\n" +
-        "2. Role: " + data.get("role") + "\n\n" +
-        "3. Why did you choose this role?\n" +
-        data.get("reason") + "\n\n" +
-        "4. Experience:\n" +
-        data.get("experience") + "\n\n" +
-        "5. Availability: " + data.get("availability") + "\n\n" +
-        "6. Greatest Strength:\n" +
-        data.get("strength") + "\n\n" +
-        "7. Difficult Situation:\n" +
-        data.get("situation") + "\n\n" +
-        "8. Teamwork:\n" +
-        data.get("teamwork") + "\n\n" +
-        "9. Ideas for STP:\n" +
-        data.get("ideas") + "\n\n" +
-        "10. Why should we accept you?\n" +
-        data.get("commitment");
-
-    applicationForm.classList.remove("active");
-    reviewMessage.classList.add("active");
-
-    reviewMessage.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-});
-
-copyButton.addEventListener("click", function() {
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(applicationText)
-            .then(function() {
-                copyButton.textContent = "Copied!";
-            })
-            .catch(function() {
-                window.prompt(
-                    "Copy your application:",
-                    applicationText
-                );
-            });
-    } else {
-        window.prompt(
-            "Copy your application:",
-            applicationText
-        );
-    }
-});
-
-applyAgainButton.addEventListener("click", function() {
-    applicationForm.reset();
-
-    reviewMessage.classList.remove("active");
-    applicationForm.classList.add("active");
-
-    copyButton.textContent = "Copy Application";
-
-    applicationForm.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-});
-</script>
-
-</body>
-</html>
+                    
