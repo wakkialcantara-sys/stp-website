@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sang'gre The Prophecy (STP)</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #fff8dc;
+    background: #090713;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 6%;
+    background: rgba(9, 7, 19, 0.96);
+    border-bottom: 1px solid #b78b36;
+}
+
+.logo {
+    color: #f3c65c;
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+nav a {
+    color: #fff8dc;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: #f3c65c;
+}
+
+.hero {
+    min-height: 540px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 70px 20px;
+    background:
+        radial-gradient(circle at 50% 35%, #513c65 0%, transparent 35%),
+        linear-gradient(180deg, #1a122d, #090713);
+}
+
+.gem {
+    font-size: 55px;
+    color: #e9b94c;
+    text-shadow: 0 0 25px #d89c35;
+}
+
+.hero h1 {
+    color: #f3c65c;
+    font-size: clamp(30px, 8vw, 62px);
+    letter-spacing: 2px;
+    margin: 15px 0;
+    text-shadow: 0 3px 20px #000;
+}
+
+.hero p {
+    color: #e6d9b7;
+    max-width: 600px;
+    line-height: 1.7;
+    font-size: 17px;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 14px 28px;
+    border: 1px solid #f3c65c;
+    border-radius: 4px;
+    background: #b8862f;
+    color: #fff8dc;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #d5a441;
+}
+
+section {
+    padding: 55px 6%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section-title {
+    color: #f3c65c;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 35px;
+}
+
+.about {
+    text-align: center;
+    color: #d8cdb2;
+    max-width: 720px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+.cards,
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card,
+.news-card {
+    background: linear-gradient(150deg, #251b39, #120d20);
+    border: 1px solid #6c5128;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover,
+.news-card:hover {
+    transform: translateY(-5px);
+    border-color: #f3c65c;
+}
+
+.card .symbol {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.card h3,
+.news-card h3 {
+    color: #f3c65c;
+    font-size: 23px;
+    margin: 10px 0;
+}
+
+.card p,
+.news-card p {
+    color: #d8cdb2;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+#news {
+    background: linear-gradient(180deg, #090713, #151025);
+    border-top: 1px solid #45351e;
+    max-width: none;
+}
+
+.news-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.news-date {
+    color: #b6a98d;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+.news-card h3 {
+    font-size: 22px;
+    margin: 12px 0;
+}
+
+.news-tag {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 6px 10px;
+    border: 1px solid #b78b36;
+    border-radius: 4px;
+    color: #f3c65c;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+#applications {
+    background: linear-gradient(180deg, #090713, #1a122d);
+    border-top: 1px solid #45351e;
+    max-width: none;
+}
+
+.application-box {
+    max-width: 700px;
+    margin: auto;
+}
+
+.application-box p {
+    color: #d8cdb2;
+    line-height: 1.8;
+}
+
+.application-form {
+    display: none;
+    margin: 30px auto 0;
+    padding: 25px;
+    background: #120d20;
+    border: 1px solid #6c5128;
+    border-radius: 8px;
+}
+
+.application-form.active {
+    display: block;
+}
+
+.question {
+    margin-bottom: 24px;
+}
+
+.question label {
+    display: block;
+    color: #f3c65c;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.question input,
+.question select,
+.question textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #6c5128;
+    border-radius: 5px;
+    background: #090713;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+.question textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.question input:focus,
+.question select:focus,
+.question textarea:focus {
+    outline: 2px solid #f3c65c;
+}
+
+.form-note {
+    color: #b6a98d;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.submit-button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.review-message {
+    display: none;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 35px 25px;
+    text-align: center;
+    background: #120d20;
+    border: 1px solid #b78b36;
+    border-radius: 8px;
+}
+
+.review-message.active {
+    display: block;
+}
+
+.review-message h2 {
+    color: #f3c65c;
+    font-size: 28px;
+}
+
+.review-message p {
+    color: #d8cdb2;
+    line-height: 1.8;
+    font-family: Arial, sans-serif;
+}
+
+.review-message strong {
+    color: #f3c65c;
+    overflow-wrap: anywhere;
+}
+
+.review-icon {
+    font-size: 42px;
+    color: #f3c65c;
+}
+
+.copy-button {
+    margin-top: 12px;
+}
+
+footer {
+    padding: 28px 20px;
+    text-align: center;
+    color: #b6a98d;
+    border-top: 1px solid #45351e;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .hero {
+        min-height: 500px;
+    }
+
+    section {
+        padding: 45px 18px;
+    }
+
+    .application-form,
+    .review-message {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">STP ✦</div>
+
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#characters">Sang'gre</a>
+        <a href="#news">News</a>
+        <a href="#applications">Join Team</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="gem">✦</div>
+
+    <h1>Sang'gre The Prophecy</h1>
+
+    <p>STP</p>
+
+    <p>
+        Enter a world of magic, gemstones, kingdoms,
+        and legendary Sang'gre warriors.
+    </p>
+
+    <a class="button" href="#characters">
+        Explore Sang'gre
+    </a>
+</header>
+
+<section id="about">
+    <h2 class="section-title">The Enchanted Realm</h2>
+
+    <p class="about">
+        Welcome to a fan-made Encantadia-inspired website.
+        Discover the mystical world, powerful elements,
+        and the legendary guardians of the four kingdoms.
+    </p>
+</section>
+
+<section id="characters">
+    <h2 class="section-title">Sang'gre Character Showcase</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="symbol">🔥</div>
+
+            <h3>Flammara</h3>
+
+            <p>
+                Guardian of fire. A symbol of courage,
+                strength, and blazing determination.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="symbol">💨</div>
+
+            <h3>Deia</h3>
+
+            <p>
+                Guardian of air. A mystical force
+                of freedom, speed, and mysterious winds.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="symbol">🌿</div>
+
+            <h3>Terra</h3>
+
+            <p>
+                Guardian of earth. Connected to nature,
+                stability, and the power of the land.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="symbol">🌊</div>
+
+            <h3>Adamus</h3>
+
+            <p>
+                Guardian of water. A mystical force
+                of wisdom, flow, and renewal.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section id="news">
+    <div class="news-container">
+
+        <h2 class="section-title">STP News</h2>
+
+        <div class="news-grid">
+
+            <article class="news-card">
+                <span class="news-date">
+                    September 16, 2026
+                </span>
+
+                <h3>Welcome to STP News</h3>
+
+                <p>
+                    Discover the latest announcements,
+                    updates, events, and magical stories
+                    from Sang'gre The Prophecy.
+                </p>
+
+                <span class="news-tag">
+                    Announcement
+                </span>
+            </article>
+
+            <article class="news-card">
+                <span class="news-date">
+                    Coming Soon
+                </span>
+
+                <h3>New Sang'gre Abilities</h3>
+
+                <p>
+                    Powerful new abilities are being
+                    prepared for the four elemental guardians.
+                </p>
+
+                <span class="news-tag">
+                    Update
+                </span>
+            </article>
+
+            <article class="news-card">
+                <span class="news-date">
+                    Coming Soon
+                </span>
+
+                <h3>STP Team Recruitment</h3>
+
+                <p>
+                    Applications are open for future
+                    moderators, promoters, and testers.
+                </p>
+
+                <span class="news-tag">
+                    Community
+                </span>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<section id="applications">
+    <h2 class="section-title">Join the STP Team</h2>
+
+    <div class="application-box">
+
+        <p style="text-align:center;">
+            Interested in becoming part of Sang'gre The Prophecy?
+            Apply for a role in our team.
+        </p>
+
+        <div style="text-align:center;">
+            <button class="button" id="applyButton" type="button">
+                Apply for Moderator/Promoter/Tester
+            </button>
+        </div>
+
+        <form class="application-form" id="applicationForm">
+
+            <h2 class="section-title">STP Application</h2>
+
+            <p class="form-note">
+                Answer all 10 questions honestly.
+                Your answers will be reviewed by the STP team.
+            </p>
+
+            <div class="question">
+                <label for="username">
+                    1. What is your Roblox username?
+                </label>
+
+                <input
+                    id="username"
+                    name="username"
+                    type="text"
+                    required
+                >
+            </div>
+
+            <div class="question">
+                <label for="role">
+                    2. Which role are you applying for?
+                </label>
+
+                <select id="role" name="role" required>
+                    <option value="">Choose a role</option>
+                    <option>Moderator</option>
+                    <option>Promoter</option>
+                    <option>Tester</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <label for="reason">
+                    3. Why did you choose this role?
+                </label>
+
+                <textarea
+                    id="reason"
+                    name="reason"
+                    required
+                ></textarea>
+            </div>
+
+            <div class="question">
+                <label for="experience">
+                    4. Do you have experience in this role?
+                    Explain.
+                </label>
+
+                <textarea
+                    id="experience"
+                    name="experience"
+                    required
+                ></textarea>
+            </div>
+
+            <div class="question">
+                <label for="availability">
+                    5. How often can you help STP?
+                </label>
+
+                <select
+                    id="availability"
+                    name="availability"
+                    required
+                >
+                    <option value="">Choose an answer</option>
+                    <option>Every day</option>
+                    <option>A few days a week</option>
+                    <option>Weekends only</option>
+                    <option>Occasionally</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <label for="strength">
+                    6. What is your greatest strength?
+                </label>
+
+                <textarea
+                    id="strength"
+                    name="strength"
+                    required
+                ></textarea>
+            </div>
+
+            <div class="question">
+                <label for="situation">
+                    7. How would you handle a difficult
+                    situation in STP?
+                </label>
+
+                <textarea
+                    id="situation"
+                    name="situation"
+                    required
+                ></textarea>
+            </div>
+
+            <div class="question">
+                <label for="teamwork">
+                    8. How would you work with other team members?
+                </label>
+
+                <textarea
+                    id="teamwork"
+                    name="teamwork"
+                    required
+                ></textarea>
+            </div>
+
+            <div class="question">
+                <label for="ideas">
+                    9. What ideas can you contribute to STP?
+                </label>
+
+                <textarea
+                    id="ideas"
+                    name="ideas"
+                    required
+                ></textarea>
+            </div>
+
+            <div class="question">
+                <label for="commitment">
+                    10. Why should we accept you into the STP team?
+                </label>
+
+                <textarea
+                    id="commitment"
+                    name="commitment"
+                    required
+                ></textarea>
+            </div>
+
+            <p class="form-note">
+                Please do not enter passwords, private account
+                information, or other sensitive details.
+            </p>
+
+            <button class="button submit-button" type="submit">
+                Submit Application
+            </button>
+
+        </form>
+
+        <div class="review-message" id="reviewMessage">
+
+            <div class="review-icon">✦</div>
+
+            <h2>Reviewing..</h2>
+
+            <p>
+                Please wait for 24hr.
+                If you still haven't got your application result,
+                please chat with us on our official TikTok account:
+                <strong>@sanggretheprophecy</strong>
+            </p>
+
+            <p class="form-note">
+                Copy the application answers you submitted,
+                then paste them into our official TikTok chat.
+            </p>
+
+            <button
+                class="button copy-button"
+                id="copyButton"
+                type="button"
+            >
+                Copy Application
+            </button>
+
+            <a
+                class="button copy-button"
+                href="https://www.tiktok.com/@sanggretheprophecy"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Visit Official TikTok
+            </a>
+
+            <button
+                class="button copy-button"
+                id="applyAgainButton"
+                type="button"
+            >
+                Apply Again
+            </button>
+
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    Sang'gre The Prophecy (STP) · Fan-made website
+</footer>
+
+<script>
+const applyButton = document.getElementById("applyButton");
+const applicationForm = document.getElementById("applicationForm");
+const reviewMessage = document.getElementById("reviewMessage");
+const copyButton = document.getElementById("copyButton");
+const applyAgainButton = document.getElementById("applyAgainButton");
+
+let applicationText = "";
+
+applyButton.addEventListener("click", function() {
+    applicationForm.classList.toggle("active");
+
+    if (applicationForm.classList.contains("active")) {
+        applicationForm.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+});
+
+applicationForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const data = new FormData(applicationForm);
+
+    applicationText =
+        "SANG'GRE THE PROPHECY (STP) APPLICATION\n\n" +
+        "1. Roblox Username: " + data.get("username") + "\n\n" +
+        "2. Role: " + data.get("role") + "\n\n" +
+        "3. Why did you choose this role?\n" +
+        data.get("reason") + "\n\n" +
+        "4. Experience:\n" +
+        data.get("experience") + "\n\n" +
+        "5. Availability: " + data.get("availability") + "\n\n" +
+        "6. Greatest Strength:\n" +
+        data.get("strength") + "\n\n" +
+        "7. Difficult Situation:\n" +
+        data.get("situation") + "\n\n" +
+        "8. Teamwork:\n" +
+        data.get("teamwork") + "\n\n" +
+        "9. Ideas for STP:\n" +
+        data.get("ideas") + "\n\n" +
+        "10. Why should we accept you?\n" +
+        data.get("commitment");
+
+    applicationForm.classList.remove("active");
+    reviewMessage.classList.add("active");
+
+    reviewMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+});
+
+copyButton.addEventListener("click", function() {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(applicationText)
+            .then(function() {
+                copyButton.textContent = "Copied!";
+            })
+            .catch(function() {
+                window.prompt(
+                    "Copy your application:",
+                    applicationText
+                );
+            });
+    } else {
+        window.prompt(
+            "Copy your application:",
+            applicationText
+        );
+    }
+});
+
+applyAgainButton.addEventListener("click", function() {
+    applicationForm.reset();
+
+    reviewMessage.classList.remove("active");
+    applicationForm.classList.add("active");
+
+    copyButton.textContent = "Copy Application";
+
+    applicationForm.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+});
+</script>
+
+</body>
+</html>
